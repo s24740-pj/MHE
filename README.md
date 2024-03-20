@@ -81,22 +81,6 @@ print(bliskieSasiedztwo(rozwiazanieNonogram, 1))
 [[0, 1, 0, 1, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]]<br />
 [[0, 0, 0, 1, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]]<br />
 
-# Algorytm Wspinaczkowy Klasyczny
-Algorytm wspinaczkowy to metoda heurystyczna, która iteracyjnie poprawia rozwiązanie, wybierając najlepsze dostępne "sąsiedztwo" bieżącego stanu.
-
-```python
-def wspinaczkowyKlasyczny(wymagania, rozwiazanie):
-    # Implementacja klasycznego algorytmu wspinaczkowego klasycznego
-    return rozwiazanie_najlepsze, najlepszy_wynik
-```
-### Wyniki działania funkcji wspinaczki klasycznej
-[[0, 0, 0, 1, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 12<br />
-[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 10<br />
-[[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 8<br />
-[[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 6<br />
-[[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 4<br />
-([[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]], 4)<br />
-
 # Generowanie Losowego Rozwiązania
 Funkcja ta tworzy całkowicie losowe układanie zaznaczeń na planszy, co jest użyteczne jako punkt startowy dla algorytmów optymalizacyjnych.
 
@@ -127,3 +111,19 @@ print(pelnyPrzeglad(wymaganiaNonogram))
 2000000 / 33554432<br />
 3000000 / 33554432<br />
 ...<br />
+
+# Algorytm Wspinaczkowy Klasyczny
+Algorytm wspinaczkowy to metoda heurystyczna, która iteracyjnie poprawia rozwiązanie, wybierając najlepsze dostępne "sąsiedztwo" bieżącego stanu.
+
+```python
+def wspinaczkowyKlasyczny(wymagania, rozwiazanie):
+    # Implementacja klasycznego algorytmu wspinaczkowego klasycznego
+    return rozwiazanie_najlepsze, najlepszy_wynik
+```
+### Wyniki działania funkcji wspinaczki klasycznej
+[[0, 0, 0, 1, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 12<br />
+[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 10<br />
+[[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 1, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 8<br />
+[[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 1, 1, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 6<br />
+[[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]] 4<br />
+([[0, 0, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 1, 0, 1, 1], [0, 1, 1, 1, 1]], 4)<br />
