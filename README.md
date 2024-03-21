@@ -61,7 +61,7 @@ for x in range(10000):
     if wynik_celu <= 8:
         print(nowe_rozwiazanie, " Ocena: ", wynik_celu)
 ```
-### Wyniki działania funkcji celu
+### Wyniki działania funkcji bliskiego losowego sąsiedztwa
 [[0, 0, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 1, 1, 1, 0], [0, 1, 1, 0, 1]]  Ocena:  6<br />
 [[0, 0, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 1, 1, 0], [0, 1, 1, 0, 1]]  Ocena:  8<br />
 ...<br />
@@ -85,7 +85,7 @@ print(bliskieSasiedztwo(rozwiazanieNonogram, 1))
 Funkcja ta tworzy całkowicie losowe układanie zaznaczeń na planszy, co jest użyteczne jako punkt startowy dla algorytmów optymalizacyjnych.
 
 ```python
-def losoweRozwiazanie(rozwiazanie):
+def losoweRozwiazanie(wymagania):
     # Implementacja generowania losowego rozwiązania
     return rozwiazanie
 
