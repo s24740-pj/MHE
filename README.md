@@ -32,8 +32,22 @@ Aby uruchomić projekt, potrzebujesz Pythona w wersji 3.x oraz dostępu do nast�
 
 - `random` - używana do generowania losowych rozwiązań i wyborów w algorytmach. Jest częścią standardowej biblioteki Pythona, więc nie wymaga dodatkowej instalacji.
 - `math` - wykorzystywana do operacji matematycznych, takich jak zaokrąglanie liczb.
+- `json` - używana do odczytywania i zapisywania danych w formacie JSON, co pozwala na łatwe wczytywanie wymagań nonogramu z pliku tekstowego.
 
 Nie ma potrzeby instalowania dodatkowych pakietów poza standardowym środowiskiem Pythona.
+
+# Czytanie wymagań z pliku
+Funkcja `czytaj_wymagania_z_pliku` wczytuje wymagania nonogramu z pliku tekstowego. Otwiera plik o podanej ścieżce, odczytuje jego zawartość jako JSON i zwraca w formie odpowiedniej do dalszego przetwarzania.
+```python
+def czytaj_wymagania_z_pliku(file_path):
+    ...
+    return wymagania
+```
+
+## Przykład działania
+```python
+wymaganiaNonogram = czytaj_wymagania_z_pliku('wymagania.txt')
+```
 
 # Funkcja Celu
 
@@ -63,9 +77,11 @@ def cel(wymagania, rozwiazanie):
 print(cel(wymaganiaNonogram, rozwiazanieNonogram))
 ```
 ### Wyniki działania funkcji celu
-30+ = słabe/niepoprawne<br />
-..<br />
-0 = w pełni poprawne<br />
+```
+30+ = słabe/niepoprawne
+..
+0 = w pełni poprawne
+```
 
 # Metoda Sąsiedztwa Losowo
 Metoda ta generuje "bliskie sąsiedztwo" bieżącego rozwiązania, co pozwala na eksplorację przestrzeni rozwiązań w poszukiwaniu lepszego ułożenia na podstawie losowości, która wskazuje na zmianę kolejnego pola na zaznaczone bądź odwrotnie.
@@ -84,12 +100,14 @@ for x in range(10000):
         print(nowe_rozwiazanie, " Ocena: ", wynik_celu)
 ```
 ### Wyniki działania funkcji bliskiego losowego sąsiedztwa
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 1, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  10<br />
-[[0, 1, 1, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 1, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  15<br />
-[[0, 1, 1, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 0, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  13<br />
-[[0, 1, 0, 1, 0, 1, 0], [0, 0, 1, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]]  Ocena:  13<br />
-[[1, 0, 1, 0, 0, 0, 1], [1, 1, 0, 0, 1, 0, 0], [1, 0, 1, 1, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1]]  Ocena:  16<br />
-...<br />
+```
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 1, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  10
+[[0, 1, 1, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 1, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  15
+[[0, 1, 1, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 0, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  13
+[[0, 1, 0, 1, 0, 1, 0], [0, 0, 1, 1, 0, 0, 1], [0, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]]  Ocena:  13
+[[1, 0, 1, 0, 0, 0, 1], [1, 1, 0, 0, 1, 0, 0], [1, 0, 1, 1, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1]]  Ocena:  16
+...
+```
 
 # Metoda Sąsiedztwa
 Metoda ta generuje "bliskie sąsiedztwo" bieżącego rozwiązania, co pozwala na eksplorację przestrzeni rozwiązań w poszukiwaniu lepszego ułożenia na podstawie wartości x, która wskazuje na zmianę kolejnego pola na zaznaczone bądź odwrotnie.
@@ -105,8 +123,10 @@ print(rozwiazanieNonogram)
 print(bliskieSasiedztwo(rozwiazanieNonogram, 1))
 ```
 ### Wyniki działania funkcji bliskiego sąsiedztwa
-[[0, 1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]]<br />
-[[0, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]]<br />
+```
+[[0, 1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]]
+[[0, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]]
+```
 
 # Generowanie Losowego Rozwiązania
 Funkcja ta tworzy całkowicie losowe układanie zaznaczeń na planszy, na podstawie wymagań, co jest użyteczne jako punkt startowy dla algorytmów optymalizacyjnych.
@@ -121,7 +141,9 @@ def losoweRozwiazanie(wymagania):
 print(losoweRozwiazanie(wymaganiaNonogram))
 ```
 ### Wyniki działania funkcji losowego rozwiązania
-[[1, 0, 1, 1, 1, 1, 1], [0, 1, 0, 1, 0, 1, 0], [0, 0, 0, 0, 1, 1, 1], [1, 1, 1, 0, 0, 1, 0]]<br />
+```
+[[1, 0, 1, 1, 1, 1, 1], [0, 1, 0, 1, 0, 1, 0], [0, 0, 0, 0, 1, 1, 1], [1, 1, 1, 0, 0, 1, 0]]
+```
 
 # Algorytm Pełnego Przeglądu
 Algorytm pełnego przeglądu (brute force) generuje wszystkie możliwe konfiguracje planszy i ocenia je, aby znaleźć najlepsze rozwiązanie. Na bieżąco informuje o procesie szukania.
@@ -136,15 +158,17 @@ def pelnyPrzeglad(rozwiazanie):
 print(pelnyPrzeglad(wymaganiaNonogram))
 ```
 ### Wyniki działania funkcji pełnego przeglądu
-0 / 268435456<br />
-500000 / 268435456<br />
-...<br />
-110000000 / 268435456<br />
-110500000 / 268435456<br />
-111000000 / 268435456<br />
-111500000 / 268435456<br />
-111604441 / 268435456  Ocena:  0  Rozwiazanie:  [[0, 1, 1, 0, 1, 0, 1], [0, 0, 1, 1, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]]<br />
-return: [[0, 1, 1, 0, 1, 0, 1], [0, 0, 1, 1, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]]<br />
+```
+0 / 268435456
+500000 / 268435456
+...
+110000000 / 268435456
+110500000 / 268435456
+111000000 / 268435456
+111500000 / 268435456
+111604441 / 268435456  Ocena:  0  Rozwiazanie:  [[0, 1, 1, 0, 1, 0, 1], [0, 0, 1, 1, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]]
+return: [[0, 1, 1, 0, 1, 0, 1], [0, 0, 1, 1, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]]
+```
 
 # Algorytm Wspinaczkowy Klasyczny
 Algorytm wspinaczkowy to metoda heurystyczna, która iteracyjnie poprawia rozwiązanie, wybierając najlepsze dostępne "sąsiedztwo" bieżącego stanu.
@@ -152,18 +176,74 @@ Algorytm wspinaczkowy to metoda heurystyczna, która iteracyjnie poprawia rozwi�
 ```python
 def wspinaczkowyKlasyczny(wymagania, rozwiazanie):
     ...
-    return rozwiazanie_najlepsze, najlepszy_wynik
+    return najlepsze_rozwiazanie, najlepszy_wynik
 ```
 ## Przykład działania
 ```python
 print(wspinaczkowyKlasyczny(wymaganiaNonogram, rozwiazanieNonogram))
 ```
 ### Wyniki działania funkcji wspinaczki klasycznej
-[[0, 1, 0, 1, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 28<br />
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 24<br />
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 19<br />
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 17<br />
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 15<br />
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 1]] 9<br />
-[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]] 4<br />
-return: ([[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]], 4)<br />
+```
+[[0, 1, 0, 1, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 28
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 24
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 19
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 17
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 15
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 1]] 9
+[[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]] 4
+return: ([[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 1]], 4)
+```
+
+# Algorytm Tabu
+Algorytm Tabu jest heurystycznym algorytmem optymalizacyjnym, który unika `utknięcia w lokalnych minimach` poprzez pamiętanie ostatnio odwiedzonych rozwiązań i zakazując ich ponownego odwiedzania przez pewien czas. Algorytm rozpoczyna od początkowego rozwiązania, generuje sąsiadów bieżącego rozwiązania, ocenia ich jakość, a następnie wybiera najlepszego sąsiada, który nie znajduje się na liście `Tabu`. Jeśli nie można znaleźć dopuszczalnych sąsiadów, `algorytm cofa się` do ostatniego odwiedzonego punktu. Proces jest kontynuowany przez określoną liczbę iteracji lub do znalezienia optymalnego rozwiązania. Lista `Tabu` ma ograniczoną długość, co pozwala na ponowne odwiedzanie starszych rozwiązań po ich usunięciu z listy.
+
+```python
+def algorytmTabu(wymagania, rozwiazanie, max_dl_tabu, iteracje):
+    ...
+    if(najlepszy_wynik == 0):
+        return rozwiazanie
+    ...
+    for i in range(iteracje):
+        if(len(sasiedzi) == 0):
+            if(najlepszy_sasiad[1] == 0):
+                return najlepszy_sasiad, i
+    ...
+    return najlepsze_rozwiazanie_globalne, cel(wymagania,najlepsze_rozwiazanie_globalne)
+```
+## Przykład działania
+```python
+print(algorytmTabu(wymaganiaNonogram, losoweRozwiazanie(wymaganiaNonogram), max_dl_tabu = 1000000, iteracje = 1000000))
+```
+
+### Wyniki działania algorytmu Tabu
+```
+0  /  1000000 0.0 %
+2000  /  1000000 0.2 %
+4000  /  1000000 0.4 %
+6000  /  1000000 0.6 %
+8000  /  1000000 0.8 %
+10000  /  1000000 1.0 %
+([[[0, 0, 1, 1, 0, 0, 1, 0], [0, 1, 1, 0, 1, 0, 0, 1], [1, 1, 0, 0, 1, 0, 1, 0], [0, 1, 1, 1, 0, 0, 1, 1], [0, 0, 1, 1, 0, 0, 1, 0], [1, 1, 1, 1, 1, 1, 1, 1], [0, 1, 1, 0, 0, 0, 0, 1], [0, 0, 0, 1, 0, 1, 1, 0]], 0], 10304)
+```
+
+# Algorytm Symulowanego Wyżarzania
+Algorytm symulowanego wyżarzania (Simulated Annealing) jest heurystycznym algorytmem optymalizacyjnym inspirowanym procesem wyżarzania metali, stosowanym do znajdowania globalnego minimum funkcji celu. Rozpoczyna od losowego rozwiązania i wysokiej temperatury, które następnie jest stopniowo chłodzone zgodnie z funkcją `T = T_0 * α^k`, gdzie `T_0` to początkowa temperatura, `α` to współczynnik chłodzenia `(0 < α < 1)`, a `k` to liczba iteracji. W każdej iteracji generuje nowe rozwiązanie, akceptując je bezwarunkowo, jeśli jest lepsze, lub z pewnym prawdopodobieństwem zależnym od temperatury i różnicy wartości funkcji celu, jeśli jest gorsze. Proces kontynuowany jest, aż temperatura spadnie poniżej minimalnej wartości `T_min` lub osiągnięta zostanie maksymalna liczba iteracji, a najlepsze znalezione rozwiązanie jest zwracane.
+
+```python
+def symulowaneWyzarzanie(wymagania, poczatkowe_rozwiazanie, T_0, alpha, T_min, max_iter):
+    ...
+    return najlepsze_rozwiazanie, najlepszy_cel
+```
+
+## Przykład działania
+```python
+print(symulowaneWyzarzanie(wymaganiaNonogram, losoweRozwiazanie(wymaganiaNonogram), T_0=100, alpha=0.9999, T_min=0.01, max_iter=10000))
+```
+### Przykładowe wyniki działania funkcji Symulowanego Wyżarzania
+```
+([[0, 0, 1, 0], [1, 1, 1, 0], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0]], 6)
+([[0, 1, 0, 1], [1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 0, 0], [0, 0, 1, 1]], 14)
+([[0, 1, 0, 1], [0, 1, 0, 1], [1, 1, 0, 1], [0, 0, 0, 0], [0, 1, 0, 0]], 14)
+([[0, 0, 1, 0], [0, 0, 1, 0], [0, 1, 0, 1], [0, 0, 0, 0], [1, 0, 0, 1]], 8)
+([[0, 1, 0, 0], [0, 0, 1, 1], [1, 0, 1, 1], [1, 1, 0, 1], [0, 0, 0, 0]], 2)
+```
