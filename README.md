@@ -76,7 +76,7 @@ def cel(wymagania, rozwiazanie):
 ```python
 print(cel(wymaganiaNonogram, rozwiazanieNonogram))
 ```
-### Wyniki działania funkcji celu
+### Wyniki działania funkcji Celu
 ```
 30+ = słabe/niepoprawne
 ..
@@ -99,7 +99,7 @@ for x in range(10000):
     if wynik_celu <= 16:
         print(nowe_rozwiazanie, " Ocena: ", wynik_celu)
 ```
-### Wyniki działania funkcji bliskiego losowego sąsiedztwa
+### Wyniki działania algorytmu Bliskiego Losowego Sąsiedztwa
 ```
 [[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 1, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  10
 [[0, 1, 1, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 1], [1, 0, 0, 1, 1, 0, 1], [1, 1, 1, 0, 1, 0, 1]]  Ocena:  15
@@ -122,7 +122,7 @@ def bliskieSasiedztwo(rozwiazanie, x):
 print(rozwiazanieNonogram)
 print(bliskieSasiedztwo(rozwiazanieNonogram, 1))
 ```
-### Wyniki działania funkcji bliskiego sąsiedztwa
+### Wyniki działania algorytmu Bliskiego Sąsiedztwa
 ```
 [[0, 1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]]
 [[0, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]]
@@ -140,7 +140,7 @@ def losoweRozwiazanie(wymagania):
 ```python
 print(losoweRozwiazanie(wymaganiaNonogram))
 ```
-### Wyniki działania funkcji losowego rozwiązania
+### Wyniki działania funkcji Losowego Rozwiązania
 ```
 [[1, 0, 1, 1, 1, 1, 1], [0, 1, 0, 1, 0, 1, 0], [0, 0, 0, 0, 1, 1, 1], [1, 1, 1, 0, 0, 1, 0]]
 ```
@@ -157,7 +157,7 @@ def pelnyPrzeglad(rozwiazanie):
 ```python
 print(pelnyPrzeglad(wymaganiaNonogram))
 ```
-### Wyniki działania funkcji pełnego przeglądu
+### Wyniki działania algorytmu Pełnego Przeglądu
 ```
 0 / 268435456
 500000 / 268435456
@@ -182,7 +182,7 @@ def wspinaczkowyKlasyczny(wymagania, rozwiazanie):
 ```python
 print(wspinaczkowyKlasyczny(wymaganiaNonogram, rozwiazanieNonogram))
 ```
-### Wyniki działania funkcji wspinaczki klasycznej
+### Wyniki działania algorytmu Wspinaczki Klasycznej
 ```
 [[0, 1, 0, 1, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 28
 [[0, 1, 0, 1, 1, 0, 1], [0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 1, 1, 0, 1], [1, 0, 0, 1, 0, 1, 1]] 24
@@ -239,7 +239,7 @@ def symulowaneWyzarzanie(wymagania, poczatkowe_rozwiazanie, T_0, alpha, T_min, m
 ```python
 print(symulowaneWyzarzanie(wymaganiaNonogram, losoweRozwiazanie(wymaganiaNonogram), T_0=100, alpha=0.9999, T_min=0.01, max_iter=10000))
 ```
-### Przykładowe wyniki działania funkcji Symulowanego Wyżarzania
+### Przykładowe wyniki działania algorytmu Symulowanego Wyżarzania
 ```
 ([[0, 0, 1, 0], [1, 1, 1, 0], [0, 1, 1, 0], [1, 0, 1, 0], [1, 0, 1, 0]], 6)
 ([[0, 1, 0, 1], [1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 0, 0], [0, 0, 1, 1]], 14)
