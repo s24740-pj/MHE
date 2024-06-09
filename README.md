@@ -247,3 +247,129 @@ print(symulowaneWyzarzanie(wymaganiaNonogram, losoweRozwiazanie(wymaganiaNonogra
 ([[0, 0, 1, 0], [0, 0, 1, 0], [0, 1, 0, 1], [0, 0, 0, 0], [1, 0, 0, 1]], 8)
 ([[0, 1, 0, 0], [0, 0, 1, 1], [1, 0, 1, 1], [1, 1, 0, 1], [0, 0, 0, 0]], 2)
 ```
+# Algorytm Wizualizacji Rozwiązania
+Funkcja `wizualizacjaRozwiazania` służy do graficznej prezentacji rozwiązania `nonogramu`. Jej zadaniem jest przekształcenie rozwiązania, które jest reprezentowane w formie macierzy `0` i `1`, na `wizualizację`, która pozwala łatwo ocenić `poprawność` i `estetykę` rozwiązania. Wizualizacja ta może być używana zarówno do celów prezentacyjnych, jak i analitycznych podczas oceny wyników różnych algorytmów.
+
+```python
+def wizualizacjaRozwiazania(rozwiazanie, wymagania):
+    ...
+    for linia in naglowek:
+        print(linia)
+    for row, wiersz_wymagania in zip(rozwiazanie, wymagania_wierszy):
+        ...
+        print(f'{linia_wymagania} {linia_rozwiazania}')
+    ...
+```
+
+## Przykład działania
+```python
+wizualizacjaRozwiazania(poprawne_rozwiazanieNonogram, wymaganiaNonogram)
+```
+### Przykładowy wynik
+*Numery wymagań kolumn mogą nie do końca zgadzać się w poniższym przykładzie z rzeczywistością.
+```
+         1 2 1  1     
+      2  1 1 1  1 1 4 
+2 1 1 ⬜⬛⬛⬜⬛⬜⬛
+  2 2 ⬜⬜⬛⬛⬜⬛⬛
+2 1 1 ⬛⬛⬜⬜⬛⬜⬛
+1 2 1 ⬛⬜⬛⬛⬜⬜⬛
+```
+
+# Algorytm genetyczny
+Algorytm genetyczny jest metodą optymalizacji inspirowaną procesem ewolucji biologicznej. W kontekście rozwiązywania nonogramów algorytm ten operuje na populacji rozwiązań, które są iteracyjnie modyfikowane w celu znalezienia najlepszego rozwiązania spełniającego określone wymagania. Algorytm genetyczny składa się z następujących kroków:
+
+- Inicjalizuj populację: Tworzenie początkowej populacji losowych rozwiązań.
+- Ocena populacji: Ocena każdego rozwiązania w populacji pod kątem jego jakości (funkcja celu).
+- Selekcja: Wybór rozwiązań, które będą rodzicami dla następnego pokolenia, na podstawie ich jakości.
+- Krzyżowanie jednopunktowe i dwupunktowe: Tworzenie nowych rozwiązań (potomków) poprzez wymianę części genotypów między parami rodziców.
+- Mutacja losowa i mutacja swap: Wprowadzenie losowych zmian do potomków w celu utrzymania różnorodności genetycznej w populacji.
+
+```python
+def algorytm_genetyczny(wymagania, rozmiar_populacji, liczba_pokolen, wspolczynnik_krzyzowania, wspolczynnik_mutacji, metoda_krzyzowania, metoda_mutacji, warunek_zakonczenia, elita):
+    ...
+    return najlepszy_osobnik, najlepszy_wynik
+```
+
+### Inicjalizuj populację
+
+Tworzy początkową populację rozwiązań nonogramu, która jest losowo generowana zgodnie z wymaganiami.
+```python
+def inicjalizuj_populacje(rozmiar_populacji, wymagania):
+    ...
+    return populacja
+```
+
+### Ocena populacji
+
+Ocena każdego rozwiązania w populacji za pomocą funkcji celu, która określa jakość rozwiązania.
+```python
+def ocena_populacji(populacja, wymagania):
+    ...
+    return wyniki
+```
+
+### Selekcja
+
+Wybór najlepszych rozwiązań, które będą rodzicami dla następnego pokolenia.
+```python
+def selekcja(populacja, wyniki, liczba_rodzicow):
+    ...
+    return wybrani
+```
+
+### Krzyżowanie jednopunktowe
+
+Tworzenie nowych rozwiązań poprzez wymianę genów między dwoma rodzicami w jednym punkcie.
+```python
+def krzyzowanie_jednopunktowe(rodzic1, rodzic2):
+    ...
+    return potomek1, potomek2
+```
+
+### Krzyżowanie dwupunktowe
+
+Tworzenie nowych rozwiązań poprzez wymianę genów między dwoma rodzicami w dwóch punktach.
+```python
+def krzyzowanie_dwupunktowe(rodzic1, rodzic2):
+    ...
+    return potomek1, potomek2
+```
+
+### Mutacja losowa
+
+Wprowadzenie losowych zmian w rozwiązaniu.
+```python
+def mutacja_losowa(osobnik):
+    ...
+    return osobnik
+```
+
+### Mutacja swap
+
+Zamiana dwóch losowo wybranych elementów w rozwiązaniu.
+```python
+def mutacja_swap(osobnik):
+    ...
+    return osobnik
+```
+
+## Przykład działania
+
+```python
+najlepsze_rozwiazanie, najlepszy_wynik = algorytm_genetyczny(
+    wymaganiaNonogram,
+    rozmiar_populacji = 100,
+    liczba_pokolen = 1000,
+    wspolczynnik_krzyzowania = 0.9,
+    wspolczynnik_mutacji = 0.1,
+    metoda_krzyzowania = 'jednopunktowe',
+    metoda_mutacji = 'losowa',
+    warunek_zakonczenia = 'liczba_iteracji',
+    elita = 1
+)
+```
+### Przykładowy wynik
+```
+Wynik: [[0, 1, 1, 0, 1, 0, 1], [0, 0, 0, 1, 0, 1, 1], [1, 0, 1, 0, 0, 0, 1], [0, 1, 0, 1, 1, 0, 1]] 4
+```
