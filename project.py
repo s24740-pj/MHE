@@ -401,20 +401,20 @@ def algorytm_genetyczny(wymagania, rozmiar_populacji, liczba_pokolen, wspolczynn
 
     return najlepszy_osobnik, najlepszy_wynik
 
-najlepsze_rozwiazanie, najlepszy_wynik = algorytm_genetyczny(
-    wymaganiaNonogram,
-    rozmiar_populacji = 100,
-    liczba_pokolen = 1000,
-    wspolczynnik_krzyzowania = 0.9,
-    wspolczynnik_mutacji = 0.1,
-    metoda_krzyzowania = 'jednopunktowe',
-    metoda_mutacji = 'losowa',
-    warunek_zakonczenia = 'liczba_iteracji',
-    elita = 1
-)
+# najlepsze_rozwiazanie, najlepszy_wynik = algorytm_genetyczny(
+#     wymaganiaNonogram,
+#     rozmiar_populacji = 100,
+#     liczba_pokolen = 1000,
+#     wspolczynnik_krzyzowania = 0.9,
+#     wspolczynnik_mutacji = 0.1,
+#     metoda_krzyzowania = 'jednopunktowe',
+#     metoda_mutacji = 'losowa',
+#     warunek_zakonczenia = 'liczba_iteracji',
+#     elita = 1
+# )
 
-print("Najlepsze rozwiązanie:")
-wizualizacjaRozwiazania(najlepsze_rozwiazanie, wymaganiaNonogram)
-print("Wynik:", najlepsze_rozwiazanie, najlepszy_wynik)
+# print("Najlepsze rozwiązanie:")
+# wizualizacjaRozwiazania(najlepsze_rozwiazanie, wymaganiaNonogram)
+# print("Wynik:", najlepsze_rozwiazanie, najlepszy_wynik)
 
 # wizualizacjaRozwiazania(poprawne_rozwiazanieNonogram, wymaganiaNonogram)
