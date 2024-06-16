@@ -149,7 +149,7 @@ print(losoweRozwiazanie(wymaganiaNonogram))
 Algorytm pełnego przeglądu (brute force) generuje wszystkie możliwe konfiguracje planszy i ocenia je, aby znaleźć najlepsze rozwiązanie. Na bieżąco informuje o procesie szukania.
 
 ```python
-def pelnyPrzeglad(rozwiazanie):
+def pelnyPrzeglad(wymagania):
     ...
     return najlepsze_rozwiazanie
 ```
